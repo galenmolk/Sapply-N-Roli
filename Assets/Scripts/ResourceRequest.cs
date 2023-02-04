@@ -1,52 +1,55 @@
 using System.Collections;
 using UnityEngine;
 
-public class ResourceRequest : MonoBehaviour
+namespace GGJ
 {
-    public int Water;
-    public int Sunlight;
-
-    [SerializeField] private bool isEnabled;
-
-    [SerializeField] private GameObject sunIcon;
-    [SerializeField] private GameObject waterIcon;
-
-    [SerializeField] private float requestDelay;
-
-    [SerializeField] private GameObject bubbleCanvas;
-
-    private void Start()
+    public class ResourceRequest : MonoBehaviour
     {
-        if (Water > 0)
+        public int Water;
+        public int Sunlight;
+
+        [SerializeField] private bool isEnabled;
+
+        [SerializeField] private GameObject sunIcon;
+        [SerializeField] private GameObject waterIcon;
+
+        [SerializeField] private float requestDelay;
+
+        [SerializeField] private GameObject bubbleCanvas;
+
+        private void Start()
         {
-            waterIcon.SetActive(true);
+            if (Water > 0)
+            {
+                waterIcon.SetActive(true);
+            }
+
+            if (Sunlight > 0)
+            {
+                sunIcon.SetActive(true);
+            }
+
+            StartCoroutine(EnableBubbleAfterDelay());
         }
 
-        if (Sunlight > 0)
+        public void TryConsume()
         {
-            sunIcon.SetActive(true);
+            if (!isEnabled)
+            {
+                return;
+            }
+
+            if (InventoryManager.Instance.TryProcessRequest(this))
+            {
+                Saply.Instance.Progress();
+                gameObject.SetActive(false);
+            }
         }
 
-        StartCoroutine(EnableBubbleAfterDelay());
-    }
-
-    public void TryConsume()
-    {
-        if (!isEnabled)
+        private IEnumerator EnableBubbleAfterDelay()
         {
-            return;
+            yield return new WaitForSeconds(requestDelay);
+            bubbleCanvas.SetActive(true);
         }
-
-        if (InventoryManager.Instance.TryProcessRequest(this))
-        {
-            Saply.Instance.Progress();
-            gameObject.SetActive(false);
-        }
-    }
-
-    private IEnumerator EnableBubbleAfterDelay()
-    {
-        yield return new WaitForSeconds(requestDelay);
-        bubbleCanvas.SetActive(true);
     }
 }

@@ -1,42 +1,45 @@
 using BramblyMead;
 using UnityEngine;
 
-public class InventoryManager : Singleton<InventoryManager>
+namespace GGJ
 {
-    [SerializeField] private ResourceSection waterSection;
-    [SerializeField] private ResourceSection sunlightSection;
-
-    public void HandleResourcePickedUp(Resource resource)
+    public class InventoryManager : Singleton<InventoryManager>
     {
-        TryPickUp(resource);
-    }
+        [SerializeField] private ResourceSection waterSection;
+        [SerializeField] private ResourceSection sunlightSection;
 
-    public bool TryProcessRequest(ResourceRequest request)
-    {
-        return waterSection.TryConsume(request.Water) &&
-               sunlightSection.TryConsume(request.Sunlight);
-    }
-
-    private void TryPickUp(Resource resource)
-    {
-        switch (resource.Type)
+        public void HandleResourcePickedUp(Resource resource)
         {
-            case Resource.ResourceType.Water:
-                waterSection.TryAdd(resource);
-                break;
-            case Resource.ResourceType.Sunlight:
-                sunlightSection.TryAdd(resource);
-                break;
+            TryPickUp(resource);
         }
-    }
 
-    private void Awake()
-    {
-        Resource.OnPickUp += HandleResourcePickedUp;
-    }
+        public bool TryProcessRequest(ResourceRequest request)
+        {
+            return waterSection.TryConsume(request.Water) &&
+                sunlightSection.TryConsume(request.Sunlight);
+        }
 
-    private void OnDestroy()
-    {
-        Resource.OnPickUp -= HandleResourcePickedUp;
+        private void TryPickUp(Resource resource)
+        {
+            switch (resource.Type)
+            {
+                case Resource.ResourceType.Water:
+                    waterSection.TryAdd(resource);
+                    break;
+                case Resource.ResourceType.Sunlight:
+                    sunlightSection.TryAdd(resource);
+                    break;
+            }
+        }
+
+        private void Awake()
+        {
+            Resource.OnPickUp += HandleResourcePickedUp;
+        }
+
+        private void OnDestroy()
+        {
+            Resource.OnPickUp -= HandleResourcePickedUp;
+        }
     }
 }
