@@ -7,6 +7,8 @@ namespace GGJ
 {
     public class Saply : Singleton<Saply>
     {
+        public int WinCondition = 15;
+
         private const string HAPPY_TRIGGER = "Happy";
 
         [Header("Start Sequence")]
@@ -122,7 +124,6 @@ namespace GGJ
         private int GetLimbCount()
         {
             int count = Random.Range(1, currentPhase.Cap + 1);
-            Debug.Log("Limb count: " + count);
             return count;
         }
 

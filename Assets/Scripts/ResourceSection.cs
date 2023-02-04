@@ -35,15 +35,28 @@ public class ResourceSection : MonoBehaviour
         }
     }
 
-    public bool TryConsume(int request)
+    public bool TryConsume(int request, out int consumed)
     {
-        if (request <= Count)
+        consumed = 0;
+
+        if (Count == 0)
         {
-            SetCount(Count - request);
-            return true;
+            return false;
         }
 
-        return false;
+        int subtract = Count - request;
+
+        if (subtract < 0)
+        {
+            consumed = Count;
+        }
+        else
+        {
+            consumed = request;
+        }
+
+        SetCount(Count - consumed);
+        return true;
     }
 
     public void SetMax(int newMax)

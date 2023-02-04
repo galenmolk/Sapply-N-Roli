@@ -24,10 +24,10 @@ namespace GGJ
             }
             else
             {
-                if (waterSection.TryConsume(request.Water))
+                if (waterSection.TryConsume(request.Water, out int consumed))
                 {
                     waterSuccess = true;
-                    request.SatisfyWater();
+                    request.GiveWater(consumed);
                 }
             }
 
@@ -37,10 +37,10 @@ namespace GGJ
             }
             else
             {
-                if (sunlightSection.TryConsume(request.Sunlight))
+                if (sunlightSection.TryConsume(request.Sunlight,  out int consumed))
                 {
                     sunlightSuccess = true;
-                    request.SatisfySunlight();
+                    request.GiveSunlight(consumed);
                 }
             }
 

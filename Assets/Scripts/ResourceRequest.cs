@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System;
+using TMPro;
 
 namespace GGJ
 {
@@ -10,6 +11,9 @@ namespace GGJ
 
         public int Water;
         public int Sunlight;
+
+        public TMP_Text waterText;
+        public TMP_Text sunText;
 
         [SerializeField] private bool isEnabled;
 
@@ -57,35 +61,41 @@ namespace GGJ
             StartCoroutine(EnableRequestAfterDelay());
         }
 
-        public void SatisfyWater()
+        public void GiveWater(int amount)
         {
-            Water = 0;
-            waterIcon.SetActive(false);
+            Water -= amount;
+            SetText();
+            ToggleIcons();
         }
 
-        public void SatisfySunlight()
+        public void GiveSunlight(int amount)
         {
-            Sunlight = 0;
-            sunIcon.SetActive(false);
+            Sunlight -= amount;
+            SetText();
+            ToggleIcons();
         }
 
         private IEnumerator EnableRequestAfterDelay()
         {
             yield return new WaitForSeconds(requestDelay);
 
-            if (Water > 0)
-            {
-                waterIcon.SetActive(true);
-            }
-
-            if (Sunlight > 0)
-            {
-                sunIcon.SetActive(true);
-            }
-
+            SetText();
+            ToggleIcons();
             bubbleCanvas.SetActive(true);
             isEnabled = true;
             SoundEffects.Instance.NewRequest();
+        }
+
+        private void SetText()
+        {
+            waterText.text = Water.ToString();
+            sunText.text = Sunlight.ToString();
+        }
+
+        private void ToggleIcons()
+        {
+            sunIcon.SetActive(Sunlight > 0);
+            waterIcon.SetActive(Water > 0);
         }
     }
 }
