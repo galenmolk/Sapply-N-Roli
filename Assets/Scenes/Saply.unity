@@ -1497,7 +1497,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  phases: []
+  phases:
+  - Threshold: 0
+    Cap: 1
+  - Threshold: 5
+    Cap: 2
+  - Threshold: 12
+    Cap: 3
+  - Threshold: 22
+    Cap: 4
+  - Threshold: 35
+    Cap: 5
   limbs:
   - {fileID: 1372302727}
   - {fileID: 1093501275}
@@ -3473,6 +3483,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: velocityMultiplier
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3251717624040539648, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: m_RootOrder
       value: 0

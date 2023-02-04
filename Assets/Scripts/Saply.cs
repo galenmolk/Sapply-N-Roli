@@ -22,12 +22,14 @@ namespace GGJ
 
         private int sequenceIndex;
         private GamePhase currentPhase;
+        private int phaseIndex;
 
         private bool startSequenceComplete;
 
         public void Progress()
         {
             SoundEffects.Instance.Grow();
+            TryProgressPhase();
 
             if (startSequenceComplete)
             {
@@ -39,8 +41,26 @@ namespace GGJ
             }
         }
 
+        private void TryProgressPhase()
+        {
+            if (phaseIndex == phases.Length - 1)
+            {
+                return;
+            }
+
+            GamePhase nextPhase = phases[phaseIndex + 1];
+
+            if (sequenceIndex == nextPhase.Threshold)
+            {
+                currentPhase = nextPhase;
+                phaseIndex++;
+            }
+        }
+
         private void Grow()
         {
+            sequenceIndex++;
+
             Debug.Log($"Grow");
             animator.SetTrigger(HAPPY_TRIGGER);
             List<SaplyLimb> growingLimbs = GetLimbs();
@@ -104,7 +124,7 @@ namespace GGJ
 
         private int GetLimbCount()
         {
-            int count = Random.Range(1, Mathf.Min(limbs.Length, currentPhase.Cap));
+            int count = Random.Range(1, currentPhase.Cap + 1);
             Debug.Log("Limb count: " + count);
             return count;
         }
