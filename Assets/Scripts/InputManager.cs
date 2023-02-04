@@ -40,7 +40,6 @@ namespace GGJ
 
         private void HandleUpStop(InputAction.CallbackContext action)
         {
-            Debug.Log("Cancelled Up");
             OnUpStop?.Invoke();
         }
 
