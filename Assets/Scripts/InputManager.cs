@@ -68,7 +68,6 @@ namespace GGJ
 
         private void Awake()
         {
-            Debug.Log("Awake");
             inputActions = new DefaultControls();
 
             inputActions.Keyboard.Up.performed += HandleUpStart;
@@ -86,7 +85,7 @@ namespace GGJ
             inputActions.Enable();
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
             inputActions.Keyboard.Up.performed -= HandleUpStart;
             inputActions.Keyboard.Down.performed -= HandleDownStart;

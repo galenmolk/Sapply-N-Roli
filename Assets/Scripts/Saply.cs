@@ -7,6 +7,8 @@ namespace GGJ
 {
     public class Saply : Singleton<Saply>
     {
+        private const string HAPPY_TRIGGER = "Happy";
+
         [Header("Start Sequence")]
         [SerializeField] private UnityEvent[] sequence;
 
@@ -14,6 +16,7 @@ namespace GGJ
 
         [SerializeField] private SaplyLimb[] limbs;
         [SerializeField] private GamePhase startPhase;
+        [SerializeField] private Animator animator;
 
         private int sequenceIndex;
         private GamePhase currentPhase;
@@ -26,18 +29,15 @@ namespace GGJ
             {
                 Grow();
             }
-
-            if (sequenceIndex >= sequence.Length)
+            else
             {
-                startSequenceComplete = true;
-                return;
+                AdvanceStartSequence();
             }
-
-            AdvanceStartSequence();
         }
 
         private void Grow()
         {
+            animator.SetTrigger(HAPPY_TRIGGER);
             List<SaplyLimb> growingLimbs = GetLimbs();
             Debug.Log($"Selected {growingLimbs.Count} to grow.");
         }
@@ -47,6 +47,11 @@ namespace GGJ
             UnityEvent e = sequence[sequenceIndex];
             e?.Invoke();
             sequenceIndex++;
+
+            if (sequenceIndex >= sequence.Length)
+            {
+                startSequenceComplete = true;
+            }
         }
 
         private List<SaplyLimb> GetLimbs()

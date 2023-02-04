@@ -8,7 +8,7 @@ namespace BramblyMead
         private static bool isQuitting;
         private static readonly object LockObject = new();
 
-        [SerializeField] private bool persistent = true;
+        [SerializeField] private bool persistent = false;
 
         public static T Instance
         {

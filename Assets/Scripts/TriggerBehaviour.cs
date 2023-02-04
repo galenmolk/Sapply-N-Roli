@@ -12,7 +12,6 @@ public class TriggerBehaviour : MonoBehaviour
         int layer = collision.gameObject.layer;
         if (collidableLayers == (collidableLayers | (1 << layer)))
         {
-            Debug.Log($"{gameObject} collider triggered.");
             onTrigger?.Invoke();
         }
     }
@@ -22,7 +21,6 @@ public class TriggerBehaviour : MonoBehaviour
         int layer = collision.gameObject.layer;
         if (collidableLayers == (collidableLayers | (1 << layer)))
         {
-            Debug.Log($"{gameObject} collider triggered.");
             onTrigger?.Invoke();
         }
     }

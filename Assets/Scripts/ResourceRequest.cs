@@ -41,7 +41,7 @@ namespace GGJ
             if (InventoryManager.Instance.TryProcessRequest(this))
             {
                 Saply.Instance.Progress();
-                gameObject.SetActive(false);
+                bubbleCanvas.SetActive(false);
             }
         }
 
