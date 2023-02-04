@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class ResourceRequest : MonoBehaviour
@@ -10,6 +11,10 @@ public class ResourceRequest : MonoBehaviour
     [SerializeField] private GameObject sunIcon;
     [SerializeField] private GameObject waterIcon;
 
+    [SerializeField] private float requestDelay;
+
+    [SerializeField] private GameObject bubbleCanvas;
+
     private void Start()
     {
         if (Water > 0)
@@ -21,6 +26,8 @@ public class ResourceRequest : MonoBehaviour
         {
             sunIcon.SetActive(true);
         }
+
+        StartCoroutine(EnableBubbleAfterDelay());
     }
 
     public void TryConsume()
@@ -35,5 +42,11 @@ public class ResourceRequest : MonoBehaviour
             Saply.Instance.Progress();
             gameObject.SetActive(false);
         }
+    }
+
+    private IEnumerator EnableBubbleAfterDelay()
+    {
+        yield return new WaitForSeconds(requestDelay);
+        bubbleCanvas.SetActive(true);
     }
 }

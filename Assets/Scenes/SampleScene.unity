@@ -138,6 +138,10 @@ PrefabInstance:
       propertyPath: Sunlight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: requestDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1604831527693585352, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -190,6 +194,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5175182558338992642, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a92b0f02f78b0469e8ff473304b756d4, type: 2}
     - target: {fileID: 5314592592533099429, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1755,6 +1763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc092e967add457e9a627d292e29596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
 --- !u!1 &1238336430
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,6 +1956,10 @@ PrefabInstance:
       propertyPath: Sunlight
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: requestDelay
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1604831527693585352, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1999,6 +2012,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5175182558338992642, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3f71989d3f45b4cd992dce3be9b144f2, type: 2}
     - target: {fileID: 5314592592533099429, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -2351,6 +2368,10 @@ PrefabInstance:
     - target: {fileID: 127770802472132093, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: requestDelay
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1100534570426374168, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_IsActive
