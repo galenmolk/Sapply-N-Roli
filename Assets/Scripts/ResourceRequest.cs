@@ -1,10 +1,13 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 namespace GGJ
 {
     public class ResourceRequest : MonoBehaviour
     {
+        public Action<ResourceRequest> OnRequestSatisfied;
+
         public int Water;
         public int Sunlight;
 
@@ -35,6 +38,7 @@ namespace GGJ
 
             if (InventoryManager.Instance.TryProcessRequest(this))
             {
+                OnRequestSatisfied?.Invoke(this);
                 Saply.Instance.Progress();
                 isEnabled = false;
                 bubbleCanvas.SetActive(false);

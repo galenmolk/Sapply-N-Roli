@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace GGJ 
@@ -15,10 +13,10 @@ namespace GGJ
 
         private Transform currentLimbEnd;
 
+        public bool hasRequest;
+
         public void Grow(RequestData request = null)
         {
-            Debug.Log($"Limb.Grow: {request}");
-
             Vector2 position = GetNewPosition();
             ResourceRequest newSection = Instantiate(limbSectionPrefab, position, limbSectionPrefab.transform.rotation, transform);
             currentLimbEnd = newSection.transform;
@@ -27,8 +25,16 @@ namespace GGJ
 
             if (request != null)
             {
+                hasRequest = true;
+                newSection.OnRequestSatisfied += HandleRequestSatisfied;
                 newSection.ActivateRequest(request);
             }
+        }
+
+        private void HandleRequestSatisfied(ResourceRequest request)
+        {
+            hasRequest = false;
+            request.OnRequestSatisfied -= HandleRequestSatisfied;
         }
 
         private Sprite GetRandomSprite()

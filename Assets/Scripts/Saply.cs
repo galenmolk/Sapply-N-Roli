@@ -61,16 +61,13 @@ namespace GGJ
         {
             sequenceIndex++;
 
-            Debug.Log($"Grow");
             animator.SetTrigger(HAPPY_TRIGGER);
             List<SaplyLimb> growingLimbs = GetLimbs();
-            Debug.Log($"Growing limbs: {growingLimbs.Count}");
             List<SaplyLimb> requestingLimbs = GetNewRequestLimbs(growingLimbs);
-            Debug.Log($"Requesting limbs: {requestingLimbs.Count}");
 
             foreach (SaplyLimb limb in growingLimbs)
             {
-                if (requestingLimbs.Contains(limb))
+                if (!limb.hasRequest && requestingLimbs.Contains(limb))
                 {
                     RequestData request = GetRandomRequest();
                     limb.Grow(request);
@@ -82,8 +79,6 @@ namespace GGJ
             }
 
             sproutLimb.Grow();
-
-            Debug.Log($"Selected {growingLimbs.Count} to grow.");
         }
 
         private void AdvanceStartSequence()
