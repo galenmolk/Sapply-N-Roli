@@ -1926,47 +1926,47 @@ MonoBehaviour:
     maxDelay: 12
     minAmount: 1
     maxAmount: 2
-    topLeft: {x: -5, y: 5}
-    bottomRight: {x: 5, y: -5}
+    topLeft: {x: -3.5, y: 2}
+    bottomRight: {x: 3.5, y: -5}
   - threshold: 4
     minDelay: 6
     maxDelay: 11
     minAmount: 2
     maxAmount: 3
-    topLeft: {x: -7, y: 7}
-    bottomRight: {x: 7, y: -7}
+    topLeft: {x: -5, y: 2.5}
+    bottomRight: {x: 5, y: -6}
   - threshold: 8
     minDelay: 5
     maxDelay: 10
     minAmount: 3
     maxAmount: 4
-    topLeft: {x: -9, y: 9}
-    bottomRight: {x: 9, y: -9}
+    topLeft: {x: -7, y: 3}
+    bottomRight: {x: 7, y: -7}
   - threshold: 12
     minDelay: 4
     maxDelay: 9
     minAmount: 4
     maxAmount: 5
-    topLeft: {x: -11, y: 11}
-    bottomRight: {x: 11, y: -11}
+    topLeft: {x: -11, y: 3.5}
+    bottomRight: {x: 11, y: -8}
   - threshold: 16
     minDelay: 3
     maxDelay: 8
     minAmount: 5
     maxAmount: 6
-    topLeft: {x: -13, y: 13}
-    bottomRight: {x: 13, y: -13}
+    topLeft: {x: -16, y: 4}
+    bottomRight: {x: 16, y: -9}
   - threshold: 20
     minDelay: 2
     maxDelay: 7
     minAmount: 6
     maxAmount: 7
-    topLeft: {x: -15, y: 15}
-    bottomRight: {x: 15, y: -15}
+    topLeft: {x: -21, y: 4.5}
+    bottomRight: {x: 21, y: -9}
   isSpawning: 1
   water: {fileID: 219572665, guid: f8db3d623f8b74c4494e2bd0eaf3d921, type: 3}
   sunlight: {fileID: 3135501567758793576, guid: 05a04510ab0b54433a45567345902d25, type: 3}
-  saplyZoneSize: 2.5
+  saplyZoneSize: 1.5
 --- !u!4 &815285129
 Transform:
   m_ObjectHideFlags: 0
