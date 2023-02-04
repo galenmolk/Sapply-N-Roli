@@ -6,6 +6,15 @@ namespace GGJ
     {
         private RigidbodyController rbController;
 
+        private int Speed = Animator.StringToHash("Speed");
+
+        public Animator animator;
+
+        public void SetSpeed(float speed)
+        {
+            animator.SetFloat(Speed, speed);
+        }
+
         private void Start()
         {
             InputManager.OnUpStart += MoveUp;

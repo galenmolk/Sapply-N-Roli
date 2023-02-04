@@ -24297,29 +24297,49 @@ PrefabInstance:
       value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
-      propertyPath: onStop.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: onStop.m_PersistentCalls.m_Calls.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3542747466195686976}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3542747466195686974}
+      objectReference: {fileID: 3542747466195686976}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3542747466195686974}
+      objectReference: {fileID: 3542747466195686976}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetSpeed
+      objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -24330,23 +24350,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_speed
+      value: GoToIdle
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: set_speed
+      value: GoToMove
+      objectReference: {fileID: 0}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GGJ.PlayerMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
+      value: GGJ.PlayerMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
+      value: GGJ.PlayerMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_FloatArgument
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: Speed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStop.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -24404,9 +24432,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3542747466195686975, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 3542747466195686974}
     - target: {fileID: 4942003836169071628, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4942003836169071628, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -24453,3 +24485,14 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 4368379821259636585, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
   m_PrefabInstance: {fileID: 3542747466195686968}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3542747466195686976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3542747466195686975, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+  m_PrefabInstance: {fileID: 3542747466195686968}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd7497a8c3c3404aae9248913e05435, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

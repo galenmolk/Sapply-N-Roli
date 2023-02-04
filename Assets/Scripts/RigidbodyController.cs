@@ -9,6 +9,8 @@ namespace GGJ
         public UnityEvent onStop;
         public UnityEvent onStart;
 
+        public UnityEvent<float> Speed;
+
         [SerializeField] private float velocityMultiplier;
 
         private Rigidbody2D rb;
@@ -33,6 +35,7 @@ namespace GGJ
         {
             currentVelocity = currentDirection.normalized * velocityMultiplier;
             rb.velocity = currentVelocity;
+            Speed?.Invoke(rb.velocity.magnitude);
         }
 
         private void Awake()
