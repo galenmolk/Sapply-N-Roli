@@ -1,10 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace GGJ
 {
     [RequireComponent(typeof(Rigidbody2D))]
     public class RigidbodyController : MonoBehaviour
     {
+        public UnityEvent onStop;
+        public UnityEvent onStart;
+
         [SerializeField] private float velocityMultiplier;
 
         private Rigidbody2D rb;
@@ -25,7 +29,7 @@ namespace GGJ
             StopInDirection(direction);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             currentVelocity = currentDirection.normalized * velocityMultiplier;
             rb.velocity = currentVelocity;
@@ -57,6 +61,11 @@ namespace GGJ
                     currentDirection.x = 1f;
                     break;
             }
+
+            if (currentDirection.x > 0f || currentDirection.y > 0f)
+            {
+                onStart?.Invoke();
+            }
         }
 
         private void StopInDirection(Direction direction)
@@ -87,6 +96,11 @@ namespace GGJ
                         currentDirection.x = 0f;
                     }
                     break;
+            }
+
+            if (Mathf.Approximately(currentDirection.x, 0f) && Mathf.Approximately(currentDirection.y, 0f))
+            {
+                onStop?.Invoke();
             }
         }
     }

@@ -10,6 +10,7 @@ public class SoundEffects : Singleton<SoundEffects>
     public SFX sunPickup;
     public SFX grow;
     public SFX newRequest;
+    public SFX partialDelivery;
 
     [Serializable]
     public class SFX
@@ -36,5 +37,10 @@ public class SoundEffects : Singleton<SoundEffects>
     public void NewRequest()
     {
         AudioSource.PlayClipAtPoint(newRequest.audioClip, Vector3.zero, newRequest.volume);
+    }
+
+    public void PartialDelivery()
+    {
+        AudioSource.PlayClipAtPoint(partialDelivery.audioClip, Vector3.zero, partialDelivery.volume);
     }
 }

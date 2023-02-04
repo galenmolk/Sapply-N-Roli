@@ -44,6 +44,11 @@ namespace GGJ
                 }
             }
 
+            if (waterSuccess != sunlightSuccess)
+            {
+                SoundEffects.Instance.PartialDelivery();
+            }
+
             return waterSuccess && sunlightSuccess;
         }
 

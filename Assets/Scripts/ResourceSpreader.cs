@@ -23,16 +23,16 @@ namespace GGJ
         }
 
         public SpawnPhase[] spawnPhases;
+
+        public bool isSpawning = true;
+
         private SpawnPhase currentSpawnPhase;
         private int spawnPhaseIndex;
 
         [SerializeField] private Resource water;
         [SerializeField] private Resource sunlight;
 
-        [SerializeField] private int amountPerResource;
-
-        [SerializeField] private Vector2 topLeft;
-        [SerializeField] private Vector2 bottomRight;
+        public float saplyZoneSize = 3f;
 
         private void Start() 
         {
@@ -43,10 +43,13 @@ namespace GGJ
 
         private IEnumerator ContinuouslySpawnResources()
         {
-            Spawn();
-            yield return GetDelay();
+            while (isSpawning)
+            {
+                Spawn();
+                yield return GetDelay();
 
-            TryProgressPhase();
+                TryProgressPhase();
+            }
         }
 
         private void TryProgressPhase()
@@ -94,11 +97,22 @@ namespace GGJ
 
         private Vector2 GetPos()
         {
-            float x = UnityEngine.Random.Range(currentSpawnPhase.topLeft.x, currentSpawnPhase.bottomRight.x);
-            float y = UnityEngine.Random.Range(currentSpawnPhase.topLeft.y, currentSpawnPhase.bottomRight.y);
+            float x = GetCoord(currentSpawnPhase.topLeft.x, currentSpawnPhase.bottomRight.x);
+            float y = GetCoord(currentSpawnPhase.topLeft.y, currentSpawnPhase.bottomRight.y);
 
             return new Vector2(x, y);
         }
-    }
 
+        private float GetCoord(float min, float max)
+        {
+            float coord = 0f;
+
+            while (coord < saplyZoneSize && coord > -saplyZoneSize)
+            {
+                coord = Random(min, max);
+            }
+
+            return coord;
+        }
+    }
 }
