@@ -17,8 +17,10 @@ namespace GGJ
 
         public void Grow(RequestData request = null)
         {
+            Debug.Log($"Limb.Grow: {request}");
+
             Vector2 position = GetNewPosition();
-            ResourceRequest newSection = Instantiate(limbSectionPrefab, position, Quaternion.identity, transform);
+            ResourceRequest newSection = Instantiate(limbSectionPrefab, position, limbSectionPrefab.transform.rotation, transform);
             currentLimbEnd = newSection.transform;
 
             newSection.SetSprite(GetRandomSprite());

@@ -36,6 +36,7 @@ namespace GGJ
             if (InventoryManager.Instance.TryProcessRequest(this))
             {
                 Saply.Instance.Progress();
+                isEnabled = false;
                 bubbleCanvas.SetActive(false);
             }
         }
@@ -79,7 +80,7 @@ namespace GGJ
             }
 
             bubbleCanvas.SetActive(true);
-            coll.enabled = true;
+            isEnabled = true;
         }
     }
 }

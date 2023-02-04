@@ -153,7 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Water: 1
   Sunlight: 0
-  isEnabled: 1
+  isEnabled: 0
   sunIcon: {fileID: 5036257175671336506}
   waterIcon: {fileID: 1100534570426374168}
   requestDelay: 0

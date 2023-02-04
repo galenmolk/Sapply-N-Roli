@@ -39,9 +39,12 @@ namespace GGJ
 
         private void Grow()
         {
+            Debug.Log($"Grow");
             animator.SetTrigger(HAPPY_TRIGGER);
             List<SaplyLimb> growingLimbs = GetLimbs();
+            Debug.Log($"Growing limbs: {growingLimbs.Count}");
             List<SaplyLimb> requestingLimbs = GetNewRequestLimbs(growingLimbs);
+            Debug.Log($"Requesting limbs: {requestingLimbs.Count}");
 
             foreach (SaplyLimb limb in growingLimbs)
             {
@@ -84,7 +87,7 @@ namespace GGJ
 
             while (growing.Count < count)
             {
-                int randomIndex = Random.Range(0, count);
+                int randomIndex = Random.Range(0, limbs.Length);
 
                 SaplyLimb limb = limbs[randomIndex];
 
@@ -95,6 +98,13 @@ namespace GGJ
             }
 
             return growing;
+        }
+
+        private int GetLimbCount()
+        {
+            int count = Random.Range(1, Mathf.Min(limbs.Length, currentPhase.Cap));
+            Debug.Log("Limb count: " + count);
+            return count;
         }
 
         private List<SaplyLimb> GetNewRequestLimbs(List<SaplyLimb> growing)
@@ -117,13 +127,6 @@ namespace GGJ
             }
 
             return requesting;
-        }
-
-        private int GetLimbCount()
-        {
-            int count = Random.Range(1, Mathf.Min(limbs.Length, currentPhase.Cap));
-            Debug.Log("Limb count: " + count);
-            return count;
         }
 
         private int GetRequestingCount(int max)
