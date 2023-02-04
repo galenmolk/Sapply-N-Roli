@@ -13,6 +13,34 @@ namespace GGJ
 
         [SerializeField] private Sprite[] spriteOptions;
 
+        private Transform currentLimbEnd;
+
+        public void Grow(RequestData request = null)
+        {
+            Vector2 position = GetNewPosition();
+            ResourceRequest newSection = Instantiate(limbSectionPrefab, position, Quaternion.identity, transform);
+            currentLimbEnd = newSection.transform;
+
+            newSection.SetSprite(GetRandomSprite());
+
+            if (request != null)
+            {
+                newSection.ActivateRequest(request);
+            }
+        }
+
+        private Sprite GetRandomSprite()
+        {
+            return spriteOptions[Random.Range(0, spriteOptions.Length)];
+        }
+
+        private Vector2 GetNewPosition()
+        {
+            Vector2 end = currentLimbEnd.position;
+            Vector2 direction = GetDirectionVector();
+            return end + (direction * sizeFactor);
+        }
+
         private Vector2 GetDirectionVector()
         {
             switch (direction)
@@ -28,6 +56,11 @@ namespace GGJ
                 default:
                     return Vector2.zero;
             }
+        }
+
+        private void Start() 
+        {
+            currentLimbEnd = transform;
         }
     }
 }

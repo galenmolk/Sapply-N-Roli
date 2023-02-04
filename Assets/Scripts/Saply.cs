@@ -18,6 +18,8 @@ namespace GGJ
         [SerializeField] private GamePhase startPhase;
         [SerializeField] private Animator animator;
 
+        [SerializeField] private RequestData[] possibleRequests;
+
         private int sequenceIndex;
         private GamePhase currentPhase;
 
@@ -39,6 +41,21 @@ namespace GGJ
         {
             animator.SetTrigger(HAPPY_TRIGGER);
             List<SaplyLimb> growingLimbs = GetLimbs();
+            List<SaplyLimb> requestingLimbs = GetNewRequestLimbs(growingLimbs);
+
+            foreach (SaplyLimb limb in growingLimbs)
+            {
+                if (requestingLimbs.Contains(limb))
+                {
+                    RequestData request = GetRandomRequest();
+                    limb.Grow(request);
+                }
+                else
+                {
+                    limb.Grow();
+                }
+            }
+
             Debug.Log($"Selected {growingLimbs.Count} to grow.");
         }
 
@@ -52,6 +69,11 @@ namespace GGJ
             {
                 startSequenceComplete = true;
             }
+        }
+
+        private RequestData GetRandomRequest()
+        {
+            return possibleRequests[Random.Range(0, possibleRequests.Length)];
         }
 
         private List<SaplyLimb> GetLimbs()
@@ -75,11 +97,38 @@ namespace GGJ
             return growing;
         }
 
+        private List<SaplyLimb> GetNewRequestLimbs(List<SaplyLimb> growing)
+        {
+            int limbCount = growing.Count;
+            int requestingCount = GetRequestingCount(limbCount);
+
+            List<SaplyLimb> requesting = new List<SaplyLimb>();
+
+            while (requesting.Count < requestingCount)
+            {
+                int randomIndex = Random.Range(0, limbCount);
+
+                SaplyLimb limb = growing[randomIndex];
+
+                if (!requesting.Contains(limb))
+                {
+                    requesting.Add(limb);
+                }
+            }
+
+            return requesting;
+        }
+
         private int GetLimbCount()
         {
             int count = Random.Range(1, Mathf.Min(limbs.Length, currentPhase.Cap));
             Debug.Log("Limb count: " + count);
             return count;
+        }
+
+        private int GetRequestingCount(int max)
+        {
+            return Random.Range(1, max);
         }
 
         private void Start() 

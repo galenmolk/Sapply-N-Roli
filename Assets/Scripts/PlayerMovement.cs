@@ -36,7 +36,6 @@ namespace GGJ
 
         private void MoveUp()
         {
-            Debug.Log("Move Up");
             rbController.Move(Direction.Up);
         }
 

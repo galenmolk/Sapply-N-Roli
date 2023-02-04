@@ -158,6 +158,9 @@ MonoBehaviour:
   waterIcon: {fileID: 1100534570426374168}
   requestDelay: 0
   bubbleCanvas: {fileID: 6804060792344704055}
+  spriteRenderer: {fileID: 5314592592533099429}
+  autoEnableRequest: 0
+  coll: {fileID: 1604831527693585355}
 --- !u!114 &8778732435893046147
 MonoBehaviour:
   m_ObjectHideFlags: 0

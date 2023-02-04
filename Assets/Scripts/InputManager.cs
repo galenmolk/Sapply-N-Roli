@@ -22,7 +22,6 @@ namespace GGJ
 
         private void HandleUpStart(InputAction.CallbackContext action)
         {
-            Debug.Log("Up Start");
             OnUpStart?.Invoke();
         }
 

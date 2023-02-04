@@ -15,20 +15,15 @@ namespace GGJ
         [SerializeField] private float requestDelay;
         [SerializeField] private GameObject bubbleCanvas;
         [SerializeField] private SpriteRenderer spriteRenderer;
+        [SerializeField] private bool autoEnableRequest;
+        [SerializeField] private Collider2D coll;
 
         private void Start()
         {
-            if (Water > 0)
+            if (autoEnableRequest)
             {
-                waterIcon.SetActive(true);
+                StartCoroutine(EnableRequestAfterDelay());
             }
-
-            if (Sunlight > 0)
-            {
-                sunIcon.SetActive(true);
-            }
-
-            StartCoroutine(EnableBubbleAfterDelay());
         }
 
         public void TryConsume()
@@ -45,15 +40,46 @@ namespace GGJ
             }
         }
 
-        public void Configure(Sprite sprite)
+        public void SetSprite(Sprite sprite)
         {
             spriteRenderer.sprite = sprite;
         }
 
-        private IEnumerator EnableBubbleAfterDelay()
+        public void ActivateRequest(RequestData request)
+        {
+            Water = request.Water;
+            Sunlight = request.Sunlight;
+            StartCoroutine(EnableRequestAfterDelay());
+        }
+
+        public void SatisfyWater()
+        {
+            Water = 0;
+            waterIcon.SetActive(false);
+        }
+
+        public void SatisfySunlight()
+        {
+            Sunlight = 0;
+            sunIcon.SetActive(false);
+        }
+
+        private IEnumerator EnableRequestAfterDelay()
         {
             yield return new WaitForSeconds(requestDelay);
+
+            if (Water > 0)
+            {
+                waterIcon.SetActive(true);
+            }
+
+            if (Sunlight > 0)
+            {
+                sunIcon.SetActive(true);
+            }
+
             bubbleCanvas.SetActive(true);
+            coll.enabled = true;
         }
     }
 }

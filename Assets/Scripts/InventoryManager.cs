@@ -15,8 +15,36 @@ namespace GGJ
 
         public bool TryProcessRequest(ResourceRequest request)
         {
-            return waterSection.TryConsume(request.Water) &&
-                sunlightSection.TryConsume(request.Sunlight);
+            bool waterSuccess = false;
+            bool sunlightSuccess = false;
+
+            if (request.Water == 0)
+            {
+                waterSuccess = true;
+            }
+            else
+            {
+                if (waterSection.TryConsume(request.Water))
+                {
+                    waterSuccess = true;
+                    request.SatisfyWater();
+                }
+            }
+
+            if (request.Sunlight == 0)
+            {
+                sunlightSuccess = true;
+            }
+            else
+            {
+                if (sunlightSection.TryConsume(request.Sunlight))
+                {
+                    sunlightSuccess = true;
+                    request.SatisfySunlight();
+                }
+            }
+
+            return waterSuccess && sunlightSuccess;
         }
 
         private void TryPickUp(Resource resource)
