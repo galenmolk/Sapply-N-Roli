@@ -16,6 +16,8 @@ namespace GGJ
         public static Action OnLeftStop;
         public static Action OnRightStop;
 
+        public static Action OnPauseMenuToggled;
+
         private DefaultControls inputActions;
 
         private void HandleUpStart(InputAction.CallbackContext action)
@@ -58,6 +60,11 @@ namespace GGJ
             OnRightStop?.Invoke();
         }
 
+        private void HandlePauseMenuToggled(InputAction.CallbackContext action)
+        {
+            OnPauseMenuToggled?.Invoke();
+        }
+
         private void Start()
         {
             inputActions = new DefaultControls();
@@ -71,6 +78,8 @@ namespace GGJ
             inputActions.Keyboard.Down.canceled += HandleDownStop;
             inputActions.Keyboard.Left.canceled += HandleLeftStop;
             inputActions.Keyboard.Right.canceled += HandleRightStop;
+
+            inputActions.Keyboard.TogglePause.performed += HandlePauseMenuToggled;
 
             inputActions.Enable();
         }
@@ -86,6 +95,9 @@ namespace GGJ
             inputActions.Keyboard.Down.canceled -= HandleDownStop;
             inputActions.Keyboard.Left.canceled -= HandleLeftStop;
             inputActions.Keyboard.Right.canceled -= HandleRightStop;
+
+            inputActions.Keyboard.TogglePause.performed -= HandlePauseMenuToggled;
+
             inputActions.Disable();
         }
     }

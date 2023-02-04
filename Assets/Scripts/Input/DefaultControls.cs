@@ -64,6 +64,15 @@ namespace GGJ
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TogglePause"",
+                    ""type"": ""Button"",
+                    ""id"": ""f12fad7d-50dd-417b-bb4b-23c1080c679f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -154,6 +163,17 @@ namespace GGJ
                     ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""debf4ed5-4482-49f5-8e2c-2643cde68556"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TogglePause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -166,6 +186,7 @@ namespace GGJ
             m_Keyboard_Down = m_Keyboard.FindAction("Down", throwIfNotFound: true);
             m_Keyboard_Left = m_Keyboard.FindAction("Left", throwIfNotFound: true);
             m_Keyboard_Right = m_Keyboard.FindAction("Right", throwIfNotFound: true);
+            m_Keyboard_TogglePause = m_Keyboard.FindAction("TogglePause", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -229,6 +250,7 @@ namespace GGJ
         private readonly InputAction m_Keyboard_Down;
         private readonly InputAction m_Keyboard_Left;
         private readonly InputAction m_Keyboard_Right;
+        private readonly InputAction m_Keyboard_TogglePause;
         public struct KeyboardActions
         {
             private @DefaultControls m_Wrapper;
@@ -237,6 +259,7 @@ namespace GGJ
             public InputAction @Down => m_Wrapper.m_Keyboard_Down;
             public InputAction @Left => m_Wrapper.m_Keyboard_Left;
             public InputAction @Right => m_Wrapper.m_Keyboard_Right;
+            public InputAction @TogglePause => m_Wrapper.m_Keyboard_TogglePause;
             public InputActionMap Get() { return m_Wrapper.m_Keyboard; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -258,6 +281,9 @@ namespace GGJ
                     @Right.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRight;
                     @Right.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRight;
                     @Right.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnRight;
+                    @TogglePause.started -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTogglePause;
+                    @TogglePause.performed -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTogglePause;
+                    @TogglePause.canceled -= m_Wrapper.m_KeyboardActionsCallbackInterface.OnTogglePause;
                 }
                 m_Wrapper.m_KeyboardActionsCallbackInterface = instance;
                 if (instance != null)
@@ -274,6 +300,9 @@ namespace GGJ
                     @Right.started += instance.OnRight;
                     @Right.performed += instance.OnRight;
                     @Right.canceled += instance.OnRight;
+                    @TogglePause.started += instance.OnTogglePause;
+                    @TogglePause.performed += instance.OnTogglePause;
+                    @TogglePause.canceled += instance.OnTogglePause;
                 }
             }
         }
@@ -284,6 +313,7 @@ namespace GGJ
             void OnDown(InputAction.CallbackContext context);
             void OnLeft(InputAction.CallbackContext context);
             void OnRight(InputAction.CallbackContext context);
+            void OnTogglePause(InputAction.CallbackContext context);
         }
     }
 }
