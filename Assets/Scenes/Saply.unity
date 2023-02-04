@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 445108e49101a421083038bef34b3248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  persistent: 1
+  persistent: 0
   sequence:
   - m_PersistentCalls:
       m_Calls:
@@ -2089,7 +2089,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1149844261}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1877957142}
+        m_TargetAssemblyTypeName: GGJ.PauseMenu, Assembly-CSharp
+        m_MethodName: Resume
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1149844261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2145,7 +2157,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1223465692
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2769,7 +2781,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1447223810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1877957142}
+        m_TargetAssemblyTypeName: GGJ.PauseMenu, Assembly-CSharp
+        m_MethodName: MainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1447223810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3079,7 +3103,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 156c2781907dd4810ae2d3238ff51929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1223465691}
 --- !u!1001 &1965956024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3405,7 +3429,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3542747466195686970, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
 --- !u!4 &3542747466195686973 stripped
 Transform:

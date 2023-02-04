@@ -6,7 +6,7 @@ namespace GGJ
     {
         private RigidbodyController rbController;
 
-        private void Awake()
+        private void Start()
         {
             InputManager.OnUpStart += MoveUp;
             InputManager.OnDownStart += MoveDown;
@@ -36,6 +36,7 @@ namespace GGJ
 
         private void MoveUp()
         {
+            Debug.Log("Move Up");
             rbController.Move(Direction.Up);
         }
 

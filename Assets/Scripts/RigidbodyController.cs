@@ -12,6 +12,9 @@ namespace GGJ
         private Vector2 currentDirection;
         private Vector2 currentVelocity;
 
+        private Direction currentXDir;
+        private Direction currentYDir;
+
         public void Move(Direction direction)
         {
             MoveInDirection(direction);
@@ -38,15 +41,19 @@ namespace GGJ
             switch (direction)
             {
                 case Direction.Up:
+                    currentYDir = Direction.Up;
                     currentDirection.y = 1f;
                     break;
                 case Direction.Down:
+                    currentYDir = Direction.Down;
                     currentDirection.y = -1f;
                     break;
                 case Direction.Left:
+                    currentXDir = Direction.Left;
                     currentDirection.x = -1f;
                     break;
                 case Direction.Right:
+                    currentXDir = Direction.Right;
                     currentDirection.x = 1f;
                     break;
             }
@@ -57,16 +64,28 @@ namespace GGJ
             switch (direction)
             {
                 case Direction.Up:
-                    currentDirection.y = 0f;
+                    if (currentYDir == Direction.Up)
+                    {
+                        currentDirection.y = 0f;
+                    }
                     break;
                 case Direction.Down:
-                    currentDirection.y = 0f;
+                    if (currentYDir == Direction.Down)
+                    {
+                        currentDirection.y = 0f;
+                    }
                     break;
                 case Direction.Left:
-                    currentDirection.x = 0f;
+                    if (currentXDir == Direction.Left)
+                    {
+                        currentDirection.x = 0f;
+                    }
                     break;
                 case Direction.Right:
-                    currentDirection.x = 0f;
+                    if (currentXDir == Direction.Right)
+                    {
+                        currentDirection.x = 0f;
+                    }
                     break;
             }
         }

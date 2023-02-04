@@ -22,6 +22,7 @@ namespace GGJ
 
         private void HandleUpStart(InputAction.CallbackContext action)
         {
+            Debug.Log("Up Start");
             OnUpStart?.Invoke();
         }
 
@@ -65,8 +66,9 @@ namespace GGJ
             OnPauseMenuToggled?.Invoke();
         }
 
-        private void Start()
+        private void Awake()
         {
+            Debug.Log("Awake");
             inputActions = new DefaultControls();
 
             inputActions.Keyboard.Up.performed += HandleUpStart;
