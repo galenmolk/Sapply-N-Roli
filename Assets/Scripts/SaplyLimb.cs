@@ -9,6 +9,9 @@ namespace GGJ
         [SerializeField] private ResourceRequest limbSectionPrefab;
 
         [SerializeField] private Direction direction;
+        [SerializeField] private float sizeFactor;
+
+        [SerializeField] private Sprite[] spriteOptions;
 
         private Vector2 GetDirectionVector()
         {

@@ -12,10 +12,9 @@ namespace GGJ
 
         [SerializeField] private GameObject sunIcon;
         [SerializeField] private GameObject waterIcon;
-
         [SerializeField] private float requestDelay;
-
         [SerializeField] private GameObject bubbleCanvas;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         private void Start()
         {
@@ -44,6 +43,11 @@ namespace GGJ
                 Saply.Instance.Progress();
                 gameObject.SetActive(false);
             }
+        }
+
+        public void Configure(Sprite sprite)
+        {
+            spriteRenderer.sprite = sprite;
         }
 
         private IEnumerator EnableBubbleAfterDelay()
