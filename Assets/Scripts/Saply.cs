@@ -15,12 +15,12 @@ namespace GGJ
         [SerializeField] private GamePhase[] phases;
 
         [SerializeField] private SaplyLimb[] limbs;
-        [SerializeField] private GamePhase startPhase;
+        [SerializeField] private SaplyLimb sproutLimb;
         [SerializeField] private Animator animator;
 
         [SerializeField] private RequestData[] possibleRequests;
 
-        private int sequenceIndex;
+        public int sequenceIndex;
         private GamePhase currentPhase;
         private int phaseIndex;
 
@@ -80,6 +80,8 @@ namespace GGJ
                     limb.Grow();
                 }
             }
+
+            sproutLimb.Grow();
 
             Debug.Log($"Selected {growingLimbs.Count} to grow.");
         }
@@ -158,7 +160,7 @@ namespace GGJ
 
         private void Start() 
         {
-            currentPhase = startPhase;
+            currentPhase = phases[0];
         }
     }
 }
