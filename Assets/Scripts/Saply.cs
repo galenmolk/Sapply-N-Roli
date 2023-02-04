@@ -27,6 +27,8 @@ namespace GGJ
 
         public void Progress()
         {
+            SoundEffects.Instance.Grow();
+
             if (startSequenceComplete)
             {
                 Grow();

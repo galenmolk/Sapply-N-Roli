@@ -81,6 +81,7 @@ namespace GGJ
 
             bubbleCanvas.SetActive(true);
             isEnabled = true;
+            SoundEffects.Instance.NewRequest();
         }
     }
 }

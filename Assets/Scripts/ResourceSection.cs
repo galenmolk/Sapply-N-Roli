@@ -20,6 +20,16 @@ public class ResourceSection : MonoBehaviour
     {
         if (Count < Max)
         {
+            switch (resource.Type)
+            {
+                case Resource.ResourceType.Water:
+                    SoundEffects.Instance.WaterPickedUp();
+                    break;
+                case Resource.ResourceType.Sunlight:
+                    SoundEffects.Instance.SunPickedUp();
+                    break;
+            }
+
             SetCount(Count + 1);
             resource.Destroy();
         }
