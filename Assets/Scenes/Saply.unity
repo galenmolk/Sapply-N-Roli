@@ -22416,7 +22416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 938771337}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.25, y: -0.56, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23677,7 +23677,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1492683122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23718,7 +23718,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 5
-  speed: 10
+  speed: 5
   rb: {fileID: 1492683126}
   playerRb: {fileID: 3542747466195686981}
 --- !u!50 &1492683126
@@ -24825,6 +24825,10 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 3542747466195686974}
+    - target: {fileID: 4130656504380262179, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4942003836169071628, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: onStart.m_PersistentCalls.m_Calls.Array.size
       value: 1

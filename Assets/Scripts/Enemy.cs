@@ -13,6 +13,6 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate() 
     {
         Vector2 direction = playerRb.position - rb.position;
-        rb.velocity = direction.normalized * speed * Time.deltaTime;
+        rb.velocity = direction.normalized * speed;
     }
 }
