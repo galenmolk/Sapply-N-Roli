@@ -85,7 +85,7 @@ namespace GGJ
             sproutLimb.Grow();
             transform.DOScale(transform.localScale + addScale, scaleDuration);
 
-            if (sequenceIndex >= 19)
+            if (sequenceIndex >= winIndex)
             {
                 EndGame.Instance.EndTheGame();
             }

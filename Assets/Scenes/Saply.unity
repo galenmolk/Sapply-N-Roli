@@ -1858,7 +1858,7 @@ MonoBehaviour:
   addScale: {x: 0.1, y: 0.1, z: 0}
   scaleDuration: 0.5
   sequenceIndex: 0
-  winIndex: 19
+  winIndex: 5
 --- !u!1 &653711907
 GameObject:
   m_ObjectHideFlags: 0
@@ -26956,6 +26956,7 @@ MonoBehaviour:
   fadeToWhiteDelay: 6
   whiteFadeDuration: 3
   camTarget: {fileID: 1121324496}
+  music: {fileID: 1144312957}
 --- !u!4 &1079488881
 Transform:
   m_ObjectHideFlags: 0
