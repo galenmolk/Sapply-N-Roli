@@ -33,28 +33,38 @@ namespace GGJ
                 switch (resource.Type)
                 {
                     case Resource.ResourceType.Water:
+                        SoundEffects.Instance.WaterPickedUp();
+                        if (!Player.Instance.isBeingHit)
+                        {
+                            SetCount(Count + 1);
+                        }
+                        else
+                        {
+                            resource.Destroy();
+                            return;
+                        }
+
                         resource.transform.DOScale(0f, tweenDuration);
                         resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
                             resource.Destroy();
-
-                            if (!Player.Instance.isBeingHit)
-                            {
-                                SetCount(Count + 1);
-                            }
                         });
-                        SoundEffects.Instance.WaterPickedUp();
                         break;
                     case Resource.ResourceType.Sunlight:
+                        SoundEffects.Instance.SunPickedUp();
+                        if (!Player.Instance.isBeingHit)
+                        {
+                            SetCount(Count + 1);
+                        }
+                        else
+                        {
+                            resource.Destroy();
+                            return;
+                        }
+
                         resource.transform.DOScale(0f, tweenDuration);
                         resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
-                            resource.Destroy();
-                            
-                            if (!Player.Instance.isBeingHit)
-                            {
-                                SetCount(Count + 1);
-                            }
+                            resource.Destroy();                    
                         });
-                        SoundEffects.Instance.SunPickedUp();
                         break;
                 }
             }
