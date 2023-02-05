@@ -82,7 +82,7 @@ namespace GGJ
             maxText.text = max.ToString();
         }
 
-        private void SetCount(int newCount)
+        public void SetCount(int newCount)
         {
             Count = newCount;
             countText.text = Count.ToString();

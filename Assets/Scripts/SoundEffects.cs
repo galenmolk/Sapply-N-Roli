@@ -11,6 +11,7 @@ public class SoundEffects : Singleton<SoundEffects>
     public SFX grow;
     public SFX newRequest;
     public SFX partialDelivery;
+    public SFX enemyHit;
 
     [Serializable]
     public class SFX
@@ -42,5 +43,10 @@ public class SoundEffects : Singleton<SoundEffects>
     public void PartialDelivery()
     {
         AudioSource.PlayClipAtPoint(partialDelivery.audioClip, Vector3.zero, partialDelivery.volume);
+    }
+
+    public void EnemyHit()
+    {
+        AudioSource.PlayClipAtPoint(enemyHit.audioClip, Vector3.zero, enemyHit.volume);
     }
 }

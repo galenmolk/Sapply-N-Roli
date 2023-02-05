@@ -8,6 +8,12 @@ namespace GGJ
         public ResourceSection waterSection;
         public ResourceSection sunlightSection;
 
+        public void DestroyResources()
+        {
+            waterSection.SetCount(0);
+            sunlightSection.SetCount(0);
+        }
+
         public void HandleResourcePickedUp(Resource resource)
         {
             TryPickUp(resource);
