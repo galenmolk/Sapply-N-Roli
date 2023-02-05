@@ -314,11 +314,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.33
+      value: -11.83
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.02
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -685,11 +685,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.65
+      value: 9.42
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.51
+      value: 5.16
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1499,7 +1499,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.08, y: 5.95, z: -10}
+  m_LocalPosition: {x: -1.84, y: -3.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1791,7 +1791,7 @@ MonoBehaviour:
         m_CallState: 2
   phases:
   - Threshold: 0
-    Cap: 2
+    Cap: 3
     possibleRequests:
     - Water: 1
       Sunlight: 0
@@ -1817,7 +1817,7 @@ MonoBehaviour:
     - Water: 4
       Sunlight: 2
   - Threshold: 8
-    Cap: 3
+    Cap: 4
     possibleRequests:
     - Water: 4
       Sunlight: 3
@@ -2338,35 +2338,35 @@ MonoBehaviour:
   boundsCollider: {fileID: 541815825}
   spawnPhases:
   - threshold: 0
-    minDelay: 8
+    minDelay: 10
+    maxDelay: 15
+    minAmount: 1
+    maxAmount: 1
+  - threshold: 4
+    minDelay: 9
     maxDelay: 14
     minAmount: 1
     maxAmount: 2
-  - threshold: 3
-    minDelay: 7
+  - threshold: 7
+    minDelay: 8
     maxDelay: 13
     minAmount: 2
     maxAmount: 3
-  - threshold: 6
-    minDelay: 6
+  - threshold: 9
+    minDelay: 7
     maxDelay: 12
     minAmount: 3
     maxAmount: 4
-  - threshold: 9
-    minDelay: 5
+  - threshold: 12
+    minDelay: 6
     maxDelay: 11
     minAmount: 4
     maxAmount: 5
-  - threshold: 12
-    minDelay: 4
+  - threshold: 15
+    minDelay: 5
     maxDelay: 10
     minAmount: 5
     maxAmount: 6
-  - threshold: 15
-    minDelay: 3
-    maxDelay: 9
-    minAmount: 6
-    maxAmount: 7
   isSpawning: 1
   water: {fileID: 219572665, guid: f8db3d623f8b74c4494e2bd0eaf3d921, type: 3}
   sunlight: {fileID: 3135501567758793576, guid: 05a04510ab0b54433a45567345902d25, type: 3}
@@ -26989,11 +26989,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.48
+      value: 9.79
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.56
+      value: -5.06
       objectReference: {fileID: 0}
     - target: {fileID: 3759853970886247651, guid: a4cd7fe7b366a4c2ba741945f8991b65, type: 3}
       propertyPath: m_LocalPosition.z

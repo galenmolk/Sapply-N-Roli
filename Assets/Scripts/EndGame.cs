@@ -21,6 +21,7 @@ namespace GGJ
         public float fadeToWhiteDelay;
         public float whiteFadeDuration;
         public Transform camTarget;
+        public AudioSource music;
 
         [ContextMenu("End the GAME")]
         public void EndTheGame()
@@ -39,6 +40,7 @@ namespace GGJ
         private IEnumerator FadeToWhite()
         {
             yield return new WaitForSeconds(fadeToWhiteDelay);
+            music.DOFade(0f, whiteFadeDuration);
             whiteOverlayGroup.DOFade(1f, whiteFadeDuration).OnComplete(() => {
                 SceneManager.LoadScene("Credits");
             });
