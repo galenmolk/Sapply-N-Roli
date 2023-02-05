@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 44641857}
   - component: {fileID: 44641858}
   m_Layer: 0
-  m_Name: Bounds (1)
+  m_Name: NE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1374,7 +1374,7 @@ GameObject:
   - component: {fileID: 541815824}
   - component: {fileID: 541815825}
   m_Layer: 0
-  m_Name: Bounds
+  m_Name: NW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1613,15 +1613,6 @@ MonoBehaviour:
         m_CallState: 2
   phases:
   - Threshold: 0
-    Cap: 4
-    possibleRequests:
-    - Water: 1
-      Sunlight: 0
-    - Water: 0
-      Sunlight: 1
-    - Water: 1
-      Sunlight: 1
-  - Threshold: 4
     Cap: 2
     possibleRequests:
     - Water: 1
@@ -1630,6 +1621,9 @@ MonoBehaviour:
       Sunlight: 1
     - Water: 1
       Sunlight: 1
+  - Threshold: 5
+    Cap: 3
+    possibleRequests:
     - Water: 2
       Sunlight: 2
     - Water: 1
@@ -1640,22 +1634,26 @@ MonoBehaviour:
       Sunlight: 1
     - Water: 1
       Sunlight: 3
+    - Water: 2
+      Sunlight: 4
+    - Water: 4
+      Sunlight: 2
   - Threshold: 8
     Cap: 3
     possibleRequests:
-    - Water: 3
-      Sunlight: 2
-    - Water: 2
+    - Water: 4
       Sunlight: 3
-    - Water: 5
-      Sunlight: 2
-    - Water: 6
-      Sunlight: 5
     - Water: 3
       Sunlight: 4
+    - Water: 5
+      Sunlight: 2
+    - Water: 2
+      Sunlight: 5
     - Water: 6
+      Sunlight: 1
+    - Water: 1
       Sunlight: 6
-  - Threshold: 12
+  - Threshold: 11
     Cap: 4
     possibleRequests:
     - Water: 5
@@ -1665,9 +1663,13 @@ MonoBehaviour:
     - Water: 5
       Sunlight: 5
     - Water: 8
-      Sunlight: 8
-    - Water: 6
+      Sunlight: 6
+    - Water: 2
       Sunlight: 7
+    - Water: 10
+      Sunlight: 1
+    - Water: 3
+      Sunlight: 5
   limbs:
   - {fileID: 1093501275}
   - {fileID: 312820460}
@@ -2464,7 +2466,11 @@ MonoBehaviour:
   isSpawning: 1
   water: {fileID: 219572665, guid: f8db3d623f8b74c4494e2bd0eaf3d921, type: 3}
   sunlight: {fileID: 3135501567758793576, guid: 05a04510ab0b54433a45567345902d25, type: 3}
-  resourceAreas: []
+  resourceAreas:
+  - {fileID: 541815825}
+  - {fileID: 44641858}
+  - {fileID: 1854719114}
+  - {fileID: 1174166548}
   saplyZoneSize: 1.5
   saplyGraphicTransform: {fileID: 1604831529083009827}
   saplyBounds: {fileID: 2083090018}
@@ -23730,7 +23736,7 @@ GameObject:
   - component: {fileID: 1174166547}
   - component: {fileID: 1174166548}
   m_Layer: 0
-  m_Name: Bounds (3)
+  m_Name: SW
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24445,7 +24451,7 @@ GameObject:
   - component: {fileID: 1854719113}
   - component: {fileID: 1854719114}
   m_Layer: 0
-  m_Name: Bounds (2)
+  m_Name: SE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
