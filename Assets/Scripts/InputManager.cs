@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using BramblyMead;
 
 namespace GGJ
 {
-    public class InputManager : MonoBehaviour
+    public class InputManager : Singleton<InputManager>
     {
         public static Action OnUpStart;
         public static Action OnDownStart;
@@ -19,6 +20,11 @@ namespace GGJ
         public static Action OnPauseMenuToggled;
 
         private DefaultControls inputActions;
+
+        public void DisableInput()
+        {
+            OnDisable();
+        }
 
         private void HandleUpStart(InputAction.CallbackContext action)
         {
