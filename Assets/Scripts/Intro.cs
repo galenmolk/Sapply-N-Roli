@@ -10,11 +10,15 @@ public class Intro : MonoBehaviour
 
     public float fadeLength;
 
-    private IEnumerator Start() {
-        yield return new WaitForSeconds(14);
-        cg.DOFade(1f, fadeLength).OnComplete(() => {
-        SceneManager.LoadScene("Saply");   
-        });
+    public void StartTimer()
+    {
+        StartCoroutine(Timer());
+    }
 
+    private IEnumerator Timer() {
+        yield return new WaitForSeconds(14);
+            cg.DOFade(1f, fadeLength).OnComplete(() => {
+            SceneManager.LoadScene("Saply");   
+        });
     }
 }
