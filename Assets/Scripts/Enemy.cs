@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
         InventoryManager.Instance.DestroyResources();
         Player.Instance.Hit();
 
-        transform.DORotate(new Vector3(0f, 0f, 355f), disappearSpeed);
         transform.DOScale(0f, disappearSpeed).OnComplete(() => {
             Destroy(gameObject);
         });
