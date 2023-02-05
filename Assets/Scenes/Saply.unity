@@ -346,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.7620734
       objectReference: {fileID: 0}
+    - target: {fileID: 396283630813478385, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: Water
       value: 0
@@ -23369,6 +23373,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 990122675}
     m_Modifications:
+    - target: {fileID: 396283630813478385, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: Sunlight
       value: 1
@@ -24366,7 +24374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: velocityMultiplier
-      value: 6.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 883187890462571504, guid: de49470fe0c1247e4a8599fcafb2ed72, type: 3}
       propertyPath: Speed.m_PersistentCalls.m_Calls.Array.size
