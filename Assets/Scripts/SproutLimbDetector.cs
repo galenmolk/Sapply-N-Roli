@@ -8,6 +8,7 @@ namespace GGJ{
             if (other.gameObject.CompareTag("Win"))
             {
                 EndGame.Instance.EndTheGame();
+                gameObject.SetActive(false);
             }
         }
     }

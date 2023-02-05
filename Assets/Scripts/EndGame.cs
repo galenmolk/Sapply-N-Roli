@@ -20,6 +20,7 @@ namespace GGJ
         public float camTweenDuration;
         public float fadeToWhiteDelay;
         public float whiteFadeDuration;
+        public Transform camTarget;
 
         [ContextMenu("End the GAME")]
         public void EndTheGame()
@@ -27,8 +28,9 @@ namespace GGJ
             InputManager.Instance.DisableInput();
 
             uiCanvasGroup.DOFade(0f, uiFadeDuration);
-            cam.Follow = null;
-            MainCam.transform.DOMove(new Vector3(saplyFinal.transform.position.x, saplyFinal.transform.position.y, MainCam.transform.position.z), camTweenDuration).OnComplete(() => {
+            Destroy(cam);
+            MainCam.transform.DOMove(new Vector3(camTarget.position.x, camTarget.position.y, MainCam.transform.position.z), camTweenDuration).
+            OnComplete(() => {
                 saplyFinal.SetActive(true);
                 StartCoroutine(FadeToWhite());
             });

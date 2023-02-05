@@ -1690,7 +1690,7 @@ MonoBehaviour:
   - {fileID: 1034318052}
   sproutLimb: {fileID: 1372302727}
   animator: {fileID: 1406202094}
-  addScale: {x: 0.01, y: 0.01, z: 0.01}
+  addScale: {x: 0.1, y: 0.1, z: 0}
   scaleDuration: 0.5
   sequenceIndex: 0
 --- !u!1 &653711907
@@ -22785,6 +22785,7 @@ MonoBehaviour:
   camTweenDuration: 2
   fadeToWhiteDelay: 6
   whiteFadeDuration: 3
+  camTarget: {fileID: 1121324496}
 --- !u!4 &1079488881
 Transform:
   m_ObjectHideFlags: 0
@@ -22907,6 +22908,37 @@ MonoBehaviour:
   - {fileID: 1486714306, guid: dc8b7ae5593aa45738fadf26ef0dcc21, type: 3}
   - {fileID: 108746712, guid: dc8b7ae5593aa45738fadf26ef0dcc21, type: 3}
   hasRequest: 0
+--- !u!1 &1121324495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121324496}
+  m_Layer: 0
+  m_Name: CamTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1121324496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121324495}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 9.18, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1121371294 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1604831527693585353, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
@@ -22955,9 +22987,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c1c5f222bbe984bae9f364ddf3176448, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dabaed4df8dc14e58a7c0f1254499ed1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -23586,7 +23618,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686786338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.85, z: 0}
+  m_LocalPosition: {x: 0, y: -0.22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
