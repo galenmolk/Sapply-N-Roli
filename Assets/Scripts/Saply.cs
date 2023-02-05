@@ -20,8 +20,6 @@ namespace GGJ
         [SerializeField] private SaplyLimb sproutLimb;
         [SerializeField] private Animator animator;
 
-        [SerializeField] private RequestData[] possibleRequests;
-
         public int sequenceIndex;
         private GamePhase currentPhase;
         private int phaseIndex;
@@ -97,7 +95,8 @@ namespace GGJ
 
         private RequestData GetRandomRequest()
         {
-            return possibleRequests[Random.Range(0, possibleRequests.Length)];
+            int length = currentPhase.possibleRequests.Length;
+            return currentPhase.possibleRequests[Random.Range(0, length)];
         }
 
         private List<SaplyLimb> GetLimbs()

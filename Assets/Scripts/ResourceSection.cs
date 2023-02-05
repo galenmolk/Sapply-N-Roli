@@ -1,78 +1,97 @@
 using TMPro;
 using UnityEngine;
+using DG.Tweening;
 
-public class ResourceSection : MonoBehaviour
+namespace GGJ
 {
-    public int Max => max;
-    public Resource.ResourceType Type => type;
-
-    public int Count { get; private set; }
-
-    [SerializeField] private TMP_Text countText;
-    [SerializeField] private TMP_Text maxText;
-
-    [SerializeField] private Resource.ResourceType type;
-    [SerializeField] private int startingMax = 1;
-
-    private int max;
-
-    public void TryAdd(Resource resource)
+    public class ResourceSection : MonoBehaviour
     {
-        if (Count < Max)
+        public int Max => max;
+        public Resource.ResourceType Type => type;
+
+        public int Count { get; private set; }
+
+        public float tweenDuration = 0.5f;
+
+        [SerializeField] private TMP_Text countText;
+        [SerializeField] private TMP_Text maxText;
+
+        [SerializeField] private Resource.ResourceType type;
+        [SerializeField] private int startingMax = 1;
+
+        public Vector2 Pos 
         {
-            switch (resource.Type)
+            get => Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height));
+        }
+
+        private int max;
+
+        public void TryAdd(Resource resource)
+        {
+            if (Count < Max)
             {
-                case Resource.ResourceType.Water:
-                    SoundEffects.Instance.WaterPickedUp();
-                    break;
-                case Resource.ResourceType.Sunlight:
-                    SoundEffects.Instance.SunPickedUp();
-                    break;
+                switch (resource.Type)
+                {
+                    case Resource.ResourceType.Water:
+                        resource.transform.DOScale(0f, tweenDuration);
+                        resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
+                            resource.Destroy();
+                            SetCount(Count + 1);
+                        });
+                        SoundEffects.Instance.WaterPickedUp();
+                        break;
+                    case Resource.ResourceType.Sunlight:
+                        resource.transform.DOScale(0f, tweenDuration);
+                        resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
+                            resource.Destroy();
+                            SetCount(Count + 1);
+                        });
+                        SoundEffects.Instance.SunPickedUp();
+                        break;
+                }
+            }
+        }
+
+        public bool TryConsume(int request, out int consumed)
+        {
+            consumed = 0;
+
+            if (Count == 0)
+            {
+                return false;
             }
 
-            SetCount(Count + 1);
-            resource.Destroy();
+            int subtract = Count - request;
+
+            if (subtract < 0)
+            {
+                consumed = Count;
+            }
+            else
+            {
+                consumed = request;
+            }
+
+            SetCount(Count - consumed);
+            return true;
         }
-    }
 
-    public bool TryConsume(int request, out int consumed)
-    {
-        consumed = 0;
-
-        if (Count == 0)
+        public void SetMax(int newMax)
         {
-            return false;
+            max = newMax;
+            maxText.text = max.ToString();
         }
 
-        int subtract = Count - request;
-
-        if (subtract < 0)
+        private void SetCount(int newCount)
         {
-            consumed = Count;
+            Count = newCount;
+            countText.text = Count.ToString();
         }
-        else
+
+        private void Start()
         {
-            consumed = request;
+            SetMax(startingMax);
         }
-
-        SetCount(Count - consumed);
-        return true;
     }
 
-    public void SetMax(int newMax)
-    {
-        max = newMax;
-        maxText.text = max.ToString();
-    }
-
-    private void SetCount(int newCount)
-    {
-        Count = newCount;
-        countText.text = Count.ToString();
-    }
-
-    private void Start()
-    {
-        SetMax(startingMax);
-    }
 }

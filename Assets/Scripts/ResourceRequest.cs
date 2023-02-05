@@ -61,18 +61,20 @@ namespace GGJ
             StartCoroutine(EnableRequestAfterDelay());
         }
 
-        public void GiveWater(int amount)
+        public bool GiveWater(int amount)
         {
             Water -= amount;
             SetText();
             ToggleIcons();
+            return Water == 0;
         }
 
-        public void GiveSunlight(int amount)
+        public bool GiveSunlight(int amount)
         {
             Sunlight -= amount;
             SetText();
             ToggleIcons();
+            return Sunlight == 0;
         }
 
         private IEnumerator EnableRequestAfterDelay()

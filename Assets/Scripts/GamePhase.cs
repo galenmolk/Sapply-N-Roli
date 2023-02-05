@@ -1,8 +1,13 @@
 using System;
 
-[Serializable]
-public class GamePhase
+namespace GGJ
 {
-    public int Threshold;
-    public int Cap;
+    [Serializable]
+    public class GamePhase
+    {
+        public int Threshold;
+        public int Cap;
+
+        public RequestData[] possibleRequests;
+    }
 }

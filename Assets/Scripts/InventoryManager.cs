@@ -5,8 +5,8 @@ namespace GGJ
 {
     public class InventoryManager : Singleton<InventoryManager>
     {
-        [SerializeField] private ResourceSection waterSection;
-        [SerializeField] private ResourceSection sunlightSection;
+        public ResourceSection waterSection;
+        public ResourceSection sunlightSection;
 
         public void HandleResourcePickedUp(Resource resource)
         {
@@ -26,8 +26,8 @@ namespace GGJ
             {
                 if (waterSection.TryConsume(request.Water, out int consumed))
                 {
-                    waterSuccess = true;
-                    request.GiveWater(consumed);
+                    SoundEffects.Instance.PartialDelivery();
+                    waterSuccess = request.GiveWater(consumed);
                 }
             }
 
@@ -39,14 +39,9 @@ namespace GGJ
             {
                 if (sunlightSection.TryConsume(request.Sunlight,  out int consumed))
                 {
-                    sunlightSuccess = true;
-                    request.GiveSunlight(consumed);
+                    SoundEffects.Instance.PartialDelivery();
+                    sunlightSuccess = request.GiveSunlight(consumed);;
                 }
-            }
-
-            if (waterSuccess != sunlightSuccess)
-            {
-                SoundEffects.Instance.PartialDelivery();
             }
 
             return waterSuccess && sunlightSuccess;
