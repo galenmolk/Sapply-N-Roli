@@ -21,6 +21,8 @@ namespace GGJ
         private Direction currentXDir;
         private Direction currentYDir;
 
+        public bool ignoreInput;
+
         public void Move(Direction direction)
         {
             MoveInDirection(direction);
@@ -33,6 +35,11 @@ namespace GGJ
 
         private void FixedUpdate()
         {
+            if (ignoreInput)
+            {
+                return;
+            }
+            
             currentVelocity = currentDirection.normalized * velocityMultiplier;
             rb.velocity = currentVelocity;
             Speed?.Invoke(rb.velocity.magnitude);

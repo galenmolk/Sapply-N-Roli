@@ -45,7 +45,7 @@ namespace GGJ
                 Saply.Instance.Progress();
                 isEnabled = false;
                 bubble.TryConsume.RemoveListener(TryConsume);
-                Destroy(bubble.gameObject);
+                bubble.Kill();
             }
         }
 

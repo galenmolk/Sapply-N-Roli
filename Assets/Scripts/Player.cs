@@ -14,16 +14,17 @@ public class Player : Singleton<Player>
 
     public float freezeDuration;
     public Collider2D coll;
+    public RigidbodyController rigidbodyController;
 
     public bool isBeingHit;
 
     public void Hit()
     {
+        rigidbodyController.ignoreInput = true;
         rb.velocity = Vector2.zero;
         coll.enabled = false;
         isBeingHit = true;
         playerAnimator.SetTrigger("Hit");
-        InputManager.Instance.DisableInput();
         StartCoroutine(Reenable());
     }
 
@@ -31,7 +32,7 @@ public class Player : Singleton<Player>
     {
         yield return new WaitForSeconds(freezeDuration);
         coll.enabled = true;
-        InputManager.Instance.EnableInput();
         isBeingHit = false;
+        rigidbodyController.ignoreInput = false;
     }
 }

@@ -484,6 +484,8 @@ GameObject:
   - component: {fileID: 4020362984284905406}
   - component: {fileID: 3969338398489890388}
   - component: {fileID: 7351773162771691517}
+  - component: {fileID: 2067813899392674118}
+  - component: {fileID: 6202945279298363229}
   m_Layer: 0
   m_Name: Bubble
   m_TagString: Untagged
@@ -500,7 +502,7 @@ RectTransform:
   m_GameObject: {fileID: 3677144788355729424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1933473084766553108}
@@ -532,6 +534,7 @@ MonoBehaviour:
   TryConsume:
     m_PersistentCalls:
       m_Calls: []
+  scale: {fileID: 6202945279298363229}
 --- !u!223 &4020362984284905407
 Canvas:
   m_ObjectHideFlags: 0
@@ -636,6 +639,46 @@ PolygonCollider2D:
       - {x: -1.1778016, y: -0.8501811}
       - {x: -0.41387022, y: -0.23272187}
       - {x: 1.1911795, y: -0.22611392}
+--- !u!114 &2067813899392674118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677144788355729424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fee4067e030c8419da69593dc397f4b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6202945279298363229}
+        m_TargetAssemblyTypeName: ScaleUp, Assembly-CSharp
+        m_MethodName: ScaleUpTo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6202945279298363229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677144788355729424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac660af76b4d64b8caeef81257e31817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scaleDuration: 0.5
 --- !u!1 &6601199428841990884
 GameObject:
   m_ObjectHideFlags: 0
