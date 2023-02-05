@@ -452,6 +452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vp: {fileID: 1461401941}
   cg: {fileID: 1543689583}
+  music: {fileID: 1461401942}
 --- !u!1 &1543689581
 GameObject:
   m_ObjectHideFlags: 0
