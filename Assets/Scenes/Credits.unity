@@ -332,7 +332,7 @@ VideoPlayer:
   - {fileID: 0}
   m_DirectAudioVolumes:
   - 1
-  m_Url: https://galenmolk.github.io/GGJ-2023/end_credits_final.mp4
+  m_Url: https://galenmolk.github.io/Sapply-N-Roli/end_credits_final.mp4
   m_EnabledAudioTracks: 01
   m_DirectAudioMutes: 00
   m_ControlledAudioTrackCount: 1
