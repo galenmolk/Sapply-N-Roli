@@ -132,7 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3431170678922243958, guid: 9de057960c9d946379cb7762e0246c1a, type: 3}
   enemyInstance: {fileID: 0}
-  maxSpeedBoost: 2
+  maxSpeedBoost: 1.5
   respawnDelayMin: 3
   respawnDelayMax: 10
 --- !u!114 &3759853970886247661

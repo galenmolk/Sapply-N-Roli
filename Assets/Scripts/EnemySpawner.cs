@@ -32,7 +32,11 @@ public class EnemySpawner : MonoBehaviour
         enemyInstance.gameObject.SetActive(true);
         enemyInstance.transform.DOScale(1f, 1f);
         enemyInstance.coll.enabled = true;
-        enemyInstance.speed = enemyInstance.startingSpeed + ((Saply.Instance.sequenceIndex / Saply.Instance.winIndex) * maxSpeedBoost);
+                Debug.Log("max speed boost: " + maxSpeedBoost);
+                Debug.Log("adding: " + (Saply.Instance.sequenceIndex / Saply.Instance.winIndex) + " times boost");
+
+        enemyInstance.speed = enemyInstance.startingSpeed + (((float)Saply.Instance.sequenceIndex / Saply.Instance.winIndex) * maxSpeedBoost);
+        Debug.Log("Respawned with speed: " + enemyInstance.speed);
     }
 
     private void Spawn()
