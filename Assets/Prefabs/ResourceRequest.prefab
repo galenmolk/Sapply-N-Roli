@@ -110,9 +110,9 @@ RectTransform:
   m_Father: {fileID: 2572864428426357382}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1.079325, y: -0.39894998}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.9, y: 0.7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &3402273164159398817
@@ -132,10 +132,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1604831527693585352}
-  - component: {fileID: 1604831527693585355}
   - component: {fileID: 820317636580782433}
   - component: {fileID: 8778732435893046147}
   - component: {fileID: 5175182558338992642}
+  - component: {fileID: 3469418120060529104}
   m_Layer: 0
   m_Name: ResourceRequest
   m_TagString: Untagged
@@ -161,32 +161,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &1604831527693585355
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1604831527693585353}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &820317636580782433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +184,7 @@ MonoBehaviour:
   bubbleCanvas: {fileID: 6804060792344704055}
   spriteRenderer: {fileID: 5314592592533099429}
   autoEnableRequest: 0
-  coll: {fileID: 1604831527693585355}
+  coll: {fileID: 3469418120060529104}
 --- !u!114 &8778732435893046147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,6 +235,40 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!60 &3469418120060529104
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1604831527693585353}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 2.1924827, y: 1.7700427}
+      - {x: -0.11198595, y: 1.7836865}
+      - {x: -0.097748734, y: 0.714392}
+      - {x: -0.26825532, y: 0.31265754}
+      - {x: -0.26685745, y: -0.36099023}
+      - {x: 0.2681775, y: -0.35407534}
+      - {x: 0.2678175, y: 0.46369237}
+      - {x: 0.58778536, y: 0.83801866}
+      - {x: 2.1916802, y: 0.8330739}
 --- !u!1 &1604831529047684566
 GameObject:
   m_ObjectHideFlags: 0
@@ -543,9 +551,9 @@ RectTransform:
   m_Father: {fileID: 2572864428426357382}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.059774995, y: -0.39894998}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0.9, y: 0.7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &5228587717566041286
@@ -785,7 +793,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6530224248679523230
 RectTransform:
   m_ObjectHideFlags: 0
@@ -850,7 +858,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &8177194873087514455
 MonoBehaviour:
   m_ObjectHideFlags: 0
