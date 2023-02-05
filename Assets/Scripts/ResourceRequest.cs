@@ -12,18 +12,17 @@ namespace GGJ
         public int Water;
         public int Sunlight;
 
-        public TMP_Text waterText;
-        public TMP_Text sunText;
+        public Vector2 bubbleOffset;
+
 
         [SerializeField] private bool isEnabled;
 
-        [SerializeField] private GameObject sunIcon;
-        [SerializeField] private GameObject waterIcon;
         [SerializeField] private float requestDelay;
-        [SerializeField] private GameObject bubbleCanvas;
         [SerializeField] private SpriteRenderer spriteRenderer;
         [SerializeField] private bool autoEnableRequest;
         [SerializeField] private Collider2D coll;
+
+        public BubbleBindings bubble;
 
         private void Start()
         {
@@ -45,7 +44,8 @@ namespace GGJ
                 OnRequestSatisfied?.Invoke(this);
                 Saply.Instance.Progress();
                 isEnabled = false;
-                bubbleCanvas.SetActive(false);
+                bubble.TryConsume.RemoveListener(TryConsume);
+                Destroy(bubble.gameObject);
             }
         }
 
@@ -58,6 +58,7 @@ namespace GGJ
         {
             Water = request.Water;
             Sunlight = request.Sunlight;
+
             StartCoroutine(EnableRequestAfterDelay());
         }
 
@@ -81,23 +82,25 @@ namespace GGJ
         {
             yield return new WaitForSeconds(requestDelay);
 
+            bubble = BubbleParent.Instance.MakeBubble(transform.position, bubbleOffset);
+            bubble.TryConsume.AddListener(TryConsume);
+
             SetText();
             ToggleIcons();
-            bubbleCanvas.SetActive(true);
             isEnabled = true;
             SoundEffects.Instance.NewRequest();
         }
 
         private void SetText()
         {
-            waterText.text = Water.ToString();
-            sunText.text = Sunlight.ToString();
+            bubble.waterText.text = Water.ToString();
+            bubble.sunlightText.text = Sunlight.ToString();
         }
 
         private void ToggleIcons()
         {
-            sunIcon.SetActive(Sunlight > 0);
-            waterIcon.SetActive(Water > 0);
+            bubble.sunlight.SetActive(Sunlight > 0);
+            bubble.water.SetActive(Water > 0);
         }
     }
 }

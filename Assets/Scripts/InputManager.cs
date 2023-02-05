@@ -21,9 +21,14 @@ namespace GGJ
 
         private DefaultControls inputActions;
 
+        public void EnableInput()
+        {
+            inputActions.Enable();
+        }
+
         public void DisableInput()
         {
-            OnDisable();
+            inputActions.Disable();
         }
 
         private void HandleUpStart(InputAction.CallbackContext action)

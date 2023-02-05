@@ -14,18 +14,26 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D playerRb;
 
     public bool isChasing;
+    public Collider2D coll;
 
     public float disappearSpeed;
 
     public void OnHitPlayer()
     {
+        if (Player.Instance.isBeingHit)
+        {
+            return;
+        }
+
+        Player.Instance.Hit();
         Debug.Log("Hit Player");
+        coll.enabled = false;
         SoundEffects.Instance.EnemyHit();
         InventoryManager.Instance.DestroyResources();
-        Player.Instance.Hit();
 
-        transform.DOScale(0f, disappearSpeed).OnComplete(() => {
-            Destroy(gameObject);
+        transform.DOScale(0f, disappearSpeed).OnComplete(() => 
+        {
+            gameObject.SetActive(false);
         });
     } 
 
@@ -48,7 +56,7 @@ public class Enemy : MonoBehaviour
 
     private void Chase()
     {
-        Vector2 direction = playerRb.position - rb.position;
+        Vector2 direction = Player.Instance.RBPos - rb.position;
         rb.velocity = direction.normalized * speed;
     }
 }

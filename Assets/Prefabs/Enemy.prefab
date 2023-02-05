@@ -158,6 +158,7 @@ MonoBehaviour:
   rb: {fileID: 3431170678922243959}
   playerRb: {fileID: 0}
   isChasing: 0
+  coll: {fileID: 3431170678922243956}
   disappearSpeed: 0.5
 --- !u!50 &3431170678922243959
 Rigidbody2D:
