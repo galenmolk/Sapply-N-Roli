@@ -13,11 +13,14 @@ public class Player : Singleton<Player>
     public  Animator playerAnimator;
 
     public float freezeDuration;
+    public Collider2D coll;
 
     public bool isBeingHit;
 
     public void Hit()
     {
+        rb.velocity = Vector2.zero;
+        coll.enabled = false;
         isBeingHit = true;
         playerAnimator.SetTrigger("Hit");
         InputManager.Instance.DisableInput();
@@ -27,6 +30,7 @@ public class Player : Singleton<Player>
     private IEnumerator Reenable()
     {
         yield return new WaitForSeconds(freezeDuration);
+        coll.enabled = true;
         InputManager.Instance.EnableInput();
         isBeingHit = false;
     }

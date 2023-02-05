@@ -36,7 +36,11 @@ namespace GGJ
                         resource.transform.DOScale(0f, tweenDuration);
                         resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
                             resource.Destroy();
-                            SetCount(Count + 1);
+
+                            if (!Player.Instance.isBeingHit)
+                            {
+                                SetCount(Count + 1);
+                            }
                         });
                         SoundEffects.Instance.WaterPickedUp();
                         break;
@@ -44,7 +48,11 @@ namespace GGJ
                         resource.transform.DOScale(0f, tweenDuration);
                         resource.transform.DOMove(Pos, tweenDuration).OnComplete(() => {
                             resource.Destroy();
-                            SetCount(Count + 1);
+                            
+                            if (!Player.Instance.isBeingHit)
+                            {
+                                SetCount(Count + 1);
+                            }
                         });
                         SoundEffects.Instance.SunPickedUp();
                         break;

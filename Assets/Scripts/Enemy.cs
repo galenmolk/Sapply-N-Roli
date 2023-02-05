@@ -4,11 +4,13 @@ using UnityEngine;
 using DG;
 using DG.Tweening;
 using GGJ;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
     public float threshold;
     public float speed;
+    public float startingSpeed;
 
     public Rigidbody2D rb;
     public Rigidbody2D playerRb;
@@ -17,6 +19,7 @@ public class Enemy : MonoBehaviour
     public Collider2D coll;
 
     public float disappearSpeed;
+    public UnityEvent onDie;
 
     public void OnHitPlayer()
     {
@@ -34,6 +37,7 @@ public class Enemy : MonoBehaviour
         transform.DOScale(0f, disappearSpeed).OnComplete(() => 
         {
             gameObject.SetActive(false);
+            onDie?.Invoke();
         });
     } 
 
@@ -58,5 +62,9 @@ public class Enemy : MonoBehaviour
     {
         Vector2 direction = Player.Instance.RBPos - rb.position;
         rb.velocity = direction.normalized * speed;
+    }
+
+    private void Start() {
+         speed = startingSpeed;
     }
 }

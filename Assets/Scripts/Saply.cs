@@ -24,6 +24,7 @@ namespace GGJ
         public float scaleDuration;
 
         public int sequenceIndex;
+        public int winIndex = 19;
         private GamePhase currentPhase;
         private int phaseIndex;
 

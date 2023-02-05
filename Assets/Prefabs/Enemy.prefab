@@ -154,12 +154,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   threshold: 6
-  speed: 1.5
+  speed: 1
+  startingSpeed: 1
   rb: {fileID: 3431170678922243959}
   playerRb: {fileID: 0}
   isChasing: 0
   coll: {fileID: 3431170678922243956}
   disappearSpeed: 0.5
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!50 &3431170678922243959
 Rigidbody2D:
   serializedVersion: 4
