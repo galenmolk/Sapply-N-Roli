@@ -1,5 +1,6 @@
 using BramblyMead;
 using UnityEngine;
+using System.Collections;
 
 namespace GGJ
 {
@@ -7,11 +8,54 @@ namespace GGJ
     {
         public ResourceSection waterSection;
         public ResourceSection sunlightSection;
+        public CanvasGroup cg;
+
+        public float loseResourceAnimDelay;
 
         public void DestroyResources()
         {
+            bool willLoseAny = waterSection.Count > 0 || sunlightSection.Count > 0;
+
             waterSection.SetCount(0);
             sunlightSection.SetCount(0);
+
+            if (willLoseAny)
+            {
+                StartCoroutine(LoseResouceAnim());
+            }
+        }
+
+        private IEnumerator LoseResouceAnim()
+        {
+            cg.alpha = 0f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 1f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 0f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 1f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 0f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 1f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 0f;
+
+            yield return new WaitForSeconds(0.1f);
+
+            cg.alpha = 1f;
         }
 
         public void HandleResourcePickedUp(Resource resource)

@@ -83,6 +83,11 @@ namespace GGJ
 
             sproutLimb.Grow();
             transform.DOScale(transform.localScale + addScale, scaleDuration);
+
+            if (sequenceIndex >= 19)
+            {
+                EndGame.Instance.EndTheGame();
+            }
         }
 
         private void AdvanceStartSequence()

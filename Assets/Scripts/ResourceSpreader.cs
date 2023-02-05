@@ -17,9 +17,6 @@ namespace GGJ
 
             public int minAmount;
             public int maxAmount;
-
-            public Vector2 topLeft;
-            public Vector2 bottomRight;
         }
 
         public Collider2D boundsCollider;
@@ -33,6 +30,8 @@ namespace GGJ
 
         [SerializeField] private Resource water;
         [SerializeField] private Resource sunlight;
+
+        public Collider2D[] resourceAreas;
 
         public float saplyZoneSize = 3f;
         public Transform saplyGraphicTransform;
@@ -76,10 +75,13 @@ namespace GGJ
         {
             int amount = Random(currentSpawnPhase.minAmount, currentSpawnPhase.maxAmount);
 
-            for (int i = 0; i < amount ; i++)
+            foreach (Collider2D coll in resourceAreas)
             {
-                Instantiate(water, GetPosWithinBounds(), Quaternion.identity, transform);
-                Instantiate(sunlight, GetPosWithinBounds(), Quaternion.identity, transform);
+                for (int i = 0; i < amount ; i++)
+                {
+                    Instantiate(water, GetPosWithinBounds(coll), Quaternion.identity, transform);
+                    Instantiate(sunlight, GetPosWithinBounds(coll), Quaternion.identity, transform);
+                }
             }
         }
 
@@ -99,20 +101,20 @@ namespace GGJ
             return new WaitForSeconds(delay);
         }
 
-        private Vector2 GetPosWithinBounds()
+        private Vector2 GetPosWithinBounds(Collider2D coll)
         {
-            Bounds bounds = boundsCollider.bounds;
-            Vector3 point = saplyGraphicTransform.position;
+            Bounds bounds = coll.bounds;
+            // Vector3 point = saplyGraphicTransform.position;
 
-            while (saplyBounds.bounds.Contains(point))
-            {
-                point = new Vector3(
-                    Random(bounds.min.x, bounds.max.x),
-                    Random(bounds.min.y, bounds.max.y), 0f
-                );
-            }
+            // while (saplyBounds.bounds.Contains(point))
+            // {
+            //     point = new Vector3(
+            //         Random(bounds.min.x, bounds.max.x),
+            //         Random(bounds.min.y, bounds.max.y), 0f
+            //     );
+            // }
 
-            return new Vector2(point.x, point.y);
+            return new Vector2(Random(bounds.min.x, bounds.max.x), Random(bounds.min.y, bounds.max.y));
         }
     }
 }
