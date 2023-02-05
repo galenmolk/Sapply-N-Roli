@@ -97,13 +97,28 @@ namespace GGJ
 
         private Vector2 GetPos()
         {
-            float x = GetCoord(currentSpawnPhase.topLeft.x, currentSpawnPhase.bottomRight.x);
-            float y = GetCoord(currentSpawnPhase.topLeft.y, currentSpawnPhase.bottomRight.y);
+            float x = GetXCoord(currentSpawnPhase.topLeft.x, currentSpawnPhase.bottomRight.x);
+            float y = GetYCoord(currentSpawnPhase.topLeft.y, currentSpawnPhase.bottomRight.y);
 
             return new Vector2(x, y);
         }
 
-        private float GetCoord(float min, float max)
+        private float GetXCoord(float min, float max)
+        {
+            float coord = 0f;
+            float saplyPosX = Saply.Instance.transform.position.x;
+            float saplyMax = saplyPosX + saplyZoneSize;
+            float saplyMin = saplyPosX - saplyZoneSize;
+
+            while (coord < saplyMax && coord > saplyMin)
+            {
+                coord = Random(min, max);
+            }
+
+            return coord;
+        }
+
+        private float GetYCoord(float min, float max)
         {
             float coord = 0f;
             float saplyPosY = Saply.Instance.transform.position.y;
