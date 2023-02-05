@@ -106,8 +106,11 @@ namespace GGJ
         private float GetCoord(float min, float max)
         {
             float coord = 0f;
+            float saplyPosY = Saply.Instance.transform.position.y;
+            float saplyMax = saplyPosY + saplyZoneSize;
+            float saplyMin = saplyPosY - saplyZoneSize;
 
-            while (coord < saplyZoneSize && coord > -saplyZoneSize)
+            while (coord < saplyMax && coord > saplyMin)
             {
                 coord = Random(min, max);
             }
