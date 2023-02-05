@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 820317636580782433, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: requestDelay
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1604831527693585352, guid: f8a634fd913434b0681a4e381ceef0e3, type: 3}
       propertyPath: m_RootOrder

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Win
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Saply
+    uniqueID: 2265511489
+    locked: 0
+  - name: Resources
+    uniqueID: 1633261661
+    locked: 0
+  - name: Player
+    uniqueID: 1426848285
     locked: 0

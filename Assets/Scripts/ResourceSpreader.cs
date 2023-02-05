@@ -22,6 +22,8 @@ namespace GGJ
             public Vector2 bottomRight;
         }
 
+        public Collider2D boundsCollider;
+
         public SpawnPhase[] spawnPhases;
 
         public bool isSpawning = true;
@@ -33,6 +35,8 @@ namespace GGJ
         [SerializeField] private Resource sunlight;
 
         public float saplyZoneSize = 3f;
+        public Transform saplyGraphicTransform;
+        public Collider2D saplyBounds;
 
         private void Start() 
         {
@@ -74,8 +78,8 @@ namespace GGJ
 
             for (int i = 0; i < amount ; i++)
             {
-                Instantiate(water, GetPos(), Quaternion.identity, transform);
-                Instantiate(sunlight, GetPos(), Quaternion.identity, transform);
+                Instantiate(water, GetPosWithinBounds(), Quaternion.identity, transform);
+                Instantiate(sunlight, GetPosWithinBounds(), Quaternion.identity, transform);
             }
         }
 
@@ -95,42 +99,20 @@ namespace GGJ
             return new WaitForSeconds(delay);
         }
 
-        private Vector2 GetPos()
+        private Vector2 GetPosWithinBounds()
         {
-            float x = GetXCoord(currentSpawnPhase.topLeft.x, currentSpawnPhase.bottomRight.x);
-            float y = GetYCoord(currentSpawnPhase.topLeft.y, currentSpawnPhase.bottomRight.y);
+            Bounds bounds = boundsCollider.bounds;
+            Vector3 point = saplyGraphicTransform.position;
 
-            return new Vector2(x, y);
-        }
-
-        private float GetXCoord(float min, float max)
-        {
-            float coord = 0f;
-            float saplyPosX = Saply.Instance.transform.position.x;
-            float saplyMax = saplyPosX + saplyZoneSize;
-            float saplyMin = saplyPosX - saplyZoneSize;
-
-            while (coord < saplyMax && coord > saplyMin)
+            while (saplyBounds.bounds.Contains(point))
             {
-                coord = Random(min, max);
+                point = new Vector3(
+                    Random(bounds.min.x, bounds.max.x),
+                    Random(bounds.min.y, bounds.max.y), 0f
+                );
             }
 
-            return coord;
-        }
-
-        private float GetYCoord(float min, float max)
-        {
-            float coord = 0f;
-            float saplyPosY = Saply.Instance.transform.position.y;
-            float saplyMax = saplyPosY + saplyZoneSize;
-            float saplyMin = saplyPosY - saplyZoneSize;
-
-            while (coord < saplyMax && coord > saplyMin)
-            {
-                coord = Random(min, max);
-            }
-
-            return coord;
+            return new Vector2(point.x, point.y);
         }
     }
 }

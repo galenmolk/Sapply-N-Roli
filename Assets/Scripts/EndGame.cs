@@ -4,6 +4,7 @@ using Cinemachine;
 using DG.Tweening;
 using DG;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 namespace GGJ
 {
@@ -36,7 +37,9 @@ namespace GGJ
         private IEnumerator FadeToWhite()
         {
             yield return new WaitForSeconds(fadeToWhiteDelay);
-            whiteOverlayGroup.DOFade(1f, whiteFadeDuration);
+            whiteOverlayGroup.DOFade(1f, whiteFadeDuration).OnComplete(() => {
+                SceneManager.LoadScene("Credits");
+            });
         }
     }
 }

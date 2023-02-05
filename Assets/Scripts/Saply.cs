@@ -2,13 +2,13 @@ using BramblyMead;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using DG;
+using DG.Tweening;
 
 namespace GGJ
 {
     public class Saply : Singleton<Saply>
     {
-        public int WinCondition = 15;
-
         private const string HAPPY_TRIGGER = "Happy";
 
         [Header("Start Sequence")]
@@ -19,6 +19,9 @@ namespace GGJ
         [SerializeField] private SaplyLimb[] limbs;
         [SerializeField] private SaplyLimb sproutLimb;
         [SerializeField] private Animator animator;
+
+        public Vector3 addScale;
+        public float scaleDuration;
 
         public int sequenceIndex;
         private GamePhase currentPhase;
@@ -79,6 +82,7 @@ namespace GGJ
             }
 
             sproutLimb.Grow();
+            transform.DOScale(transform.localScale + addScale, scaleDuration);
         }
 
         private void AdvanceStartSequence()
